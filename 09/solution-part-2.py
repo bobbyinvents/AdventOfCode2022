@@ -59,6 +59,7 @@ for motion in content:
                 tx -= 1
                 ty += 1
             elif (dx, dy) in [(-2, -2), (-2, -1), (-1, -2)]:
+                # diagonal down right
                 tx -= 1
                 ty -= 1
             knots[i] = tx, ty
