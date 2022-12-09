@@ -1,4 +1,7 @@
-content = [(i.split()[0],int(i.split()[-1])) for i in open("input.txt").read().strip().split("\n")]
+content = [
+    (i.split()[0], int(i.split()[-1]))
+    for i in open("input.txt").read().strip().split("\n")
+]
 
 # head starting point
 hx, hy = 0, 0
@@ -24,12 +27,12 @@ for motion in content:
         elif direction == "D":
             # down
             hy -= 1
-        
+
         # is tail adjacent to head?
-        is_adjacent = abs(hx-tx) < 2 and abs(hy-ty) < 2
-        
+        is_adjacent = abs(hx - tx) < 2 and abs(hy - ty) < 2
+
         # is tail diagonal to head?
-        is_diagonal = abs(hx-tx) >= 1 and abs(hy-ty) >= 1
+        is_diagonal = abs(hx - tx) >= 1 and abs(hy - ty) >= 1
 
         if not is_adjacent:
             if direction == "R":
@@ -53,7 +56,7 @@ for motion in content:
                 if is_diagonal:
                     tx = hx
 
-        tpos = (tx,ty)
+        tpos = (tx, ty)
         tail_positions += [tpos]
 
 print(f"part 1: {len(set(tail_positions))}")
